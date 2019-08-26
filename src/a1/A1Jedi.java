@@ -3,6 +3,7 @@ package a1;
 import java.util.Scanner;
 import java.util.Map;
 import java.util.LinkedHashMap;
+import java.util.ArrayList;
 
 public class A1Jedi {
 
@@ -31,13 +32,25 @@ public class A1Jedi {
 			String temp2 = scan.next();
 			int num_purchased = scan.nextInt();
 
+			// One thing item may be entered twice. Need to control for that
+			// A list of the items so far, only update if it's not in there?
+			// Or make a SET of items, cuz sets are unique, then iterate through the set and update
+			ArrayList<String> item_tracker = new ArrayList<String>();
 			for (int k = 0; k < num_purchased; k++)
 			{
 				int number_bought = scan.nextInt();
 				String item_name = scan.next();
+				if (!item_tracker.contains(item_name))
+					item_tracker.add(item_name);
 				item_totals.put(item_name, item_totals.get(item_name) + number_bought);
-				item_customer_totals.put(item_name, item_customer_totals.get(item_name) + 1);
 			}
+			// Now go through the ArrayList and update customer thingy
+
+			for (int m = 0; m < item_tracker.size(); ++m)
+			{
+				item_customer_totals.put(item_tracker.get(m), item_customer_totals.get(item_tracker.get(m))+1);
+			}
+
 		}
 		for(String key : item_totals.keySet())
 		{
