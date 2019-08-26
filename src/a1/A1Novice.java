@@ -14,18 +14,18 @@ public class A1Novice {
 
 		String[] first_names = new String[num_customers];
 		String[] last_names = new String[num_customers];
-		int[] total_cost = new int[num_customers];
+		double[] total_cost = new double[num_customers];
 
 		for(int i = 0; i < num_customers; ++i)
 		{
 			first_names[i] = scan.next();
 			last_names[i] = scan.next();
 			int items_bought = scan.nextInt();
-			int sum = 0;
+			double sum = 0;
 
 			for(int j = 0; j < items_bought; ++j)
 			{
-				int number = scan.nextInt();
+				double  number = scan.nextDouble();
 				String item = scan.next();
 				double cost = scan.nextDouble();
 				sum += number*cost;
