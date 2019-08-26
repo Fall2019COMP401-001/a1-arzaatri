@@ -36,7 +36,7 @@ public class A1Novice {
 
 		for(int k = 0; k < num_customers; ++k)
 		{
-			System.out.println(first_names[k].charAt(0) + ". " + last_names[k] + ": " + total_cost[k]);
+			System.out.println(first_names[k].charAt(0) + ". " + last_names[k] + ": " + String.format("%.2f", total_cost[k]));
 		}
 	}
 }
